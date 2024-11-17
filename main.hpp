@@ -1,4 +1,4 @@
 //functions declaration
-double checkdiscriminant(int a, int b, int c);
-double getplus(double discriminant, int a, int b, int c);
-double getminus(double discriminant, int a, int b, int c);
+double get_Px(double r, double theta, double phi);
+double get_Py(double r, double theta, double phi);
+double get_Pz(double r, double phi);
