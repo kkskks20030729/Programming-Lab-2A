@@ -28,7 +28,12 @@ int main(int argc, char* const argv[]){                 //DO NOT EDIT OR REMOVE
     double r, theta, phi;
     
     std::cout << "Enter the spherical coordinates (r, theta, phi):\n";
-    std::cin >> r >> theta >> phi;
+    std::cout << "Enter r:";
+    std::cin >> r;
+    std::cout << "\nEnter theta:";
+    std::cin >> theta;
+    std::cout << "\nEnter phi:";
+    std::cin >> phi;
 
     std::cout << "Spherical coordinate entered: (" << r << ", " << theta << ", " << phi << ")\n";
     
