@@ -1,0 +1,13 @@
+#catch2 testing files 
+test1.cpp
+test2.cpp
+test3.cpp
+catch.hpp
+
+#no .exe files
+*.exe
+
+#other
+LICENSE
+Makefile
+.vscode/*.json
