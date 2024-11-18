@@ -1,4 +1,4 @@
+#include <string>       //necessary for function with std::string as return variable
+using namespace std;    //                          "
 //functions declaration
-double get_Px(double r, double theta, double phi);
-double get_Py(double r, double theta, double phi);
-double get_Pz(double r, double phi);
+string get_grade(int mark);
