@@ -3,17 +3,17 @@
 #include "catch.hpp"
 #include "main.hpp"
 
-TEST_CASE("Test for Sample 1 - x", "[Px]")
+TEST_CASE("Test for Sample Grade 1", "Grade")
 {
-    REQUIRE(get_Px(2.0, 2.0, 3.0) == Approx(-0.11745328985524));
+    REQUIRE(get_grade(80.0) == "A");
 }
 
-TEST_CASE("Test for Sample 1 - y", "[Py]")
+TEST_CASE("Test for Sample Grade 2", "Grade")
 {
-    REQUIRE(get_Py(2.0, 2.0, 3.0) == Approx(0.25664012040491)); 
+    REQUIRE(get_grade(70) == "A-");
 }
 
-TEST_CASE("Test for Sample 1 - z", "[Pz]")
+TEST_CASE("Test for Sample Grade 3", "Grade")
 {
-    REQUIRE(get_Pz(2.0, 3.0) == Approx(-1.9799849932009));   
+    REQUIRE(get_grade(69) == "B+");
 }
