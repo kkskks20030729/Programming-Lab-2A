@@ -1,9 +1,9 @@
-/*Lab2C*/
+/*Lab2D*/
 /*Write codes description here*/
-/*Name: Write your full-name here*/
-/*USM Email: abc123@student.usm.my*/
-/*GitHub Username: abc123*/
-/*Matric No.: 987654*/
+/*Name: Kua Khai Siang*/
+/*USM Email: kuakhaisiang2003@student.usm.my*/
+/*GitHub Username: kuakhaisiang2003*/
+/*Matric No.: 23300856*/
 
 #if __linux__                                           //DO NOT EDIT OR REMOVE
     #define CATCH_CONFIG_RUNNER                         //DO NOT EDIT OR REMOVE
@@ -23,54 +23,67 @@ int main(int argc, char* const argv[]){                 //DO NOT EDIT OR REMOVE
         return runCatchTests(argc, argv);               //DO NOT EDIT OR REMOVE
     #endif                                              //DO NOT EDIT OR REMOVE
     //add and complete your codes after this line
-    
+
     int mark;
     
-    cout << "Enter your mark > ";
+    cout << "Enter mark > ";
     cin >> mark;
-    
-    if (mark < 0 || mark > 100) {
+
+    string grade = get_grade(mark);
+
+    switch (mark) {
+    case 0 ... 39: 
+        cout << "Your grade: " << grade << " (FAIL)" << endl;
+        break;
+    case 40 ... 100: 
+        cout << "Your grade: " << grade << " (PASS)" << endl;
+        break;
+    default: 
         cout << "Invalid mark. Re-run the program with mark between 0 and 100.";
-    } else {
-    
-        string grade = get_grade(mark);
-        
-        if (grade == "F" || grade == "C-" || grade == "D-" || grade == "D" || grade == "D+") {
-            cout << "Your grade: " << grade << " (FAIL)" << endl;
-        } else {
-            cout << "Your grade: " << grade << " (PASS)" << endl;
-        }
     }
-    
+
     return 0;
 }
 
 string get_grade(int mark) {
-    if (mark >= 80 && mark <= 100) {
+    switch (mark) {
+    case 80 ... 100: 
         return "A";
-    } else if (mark >= 70 && mark <= 79) {
+        break;
+    case 70 ... 79:
         return "A-";
-    } else if (mark >= 64 && mark <= 69) {
+        break;
+    case 64 ... 69:
         return "B+";
-    } else if (mark >= 58 && mark <= 63) {
+        break;
+    case 58 ... 63:
         return "B";
-    } else if (mark >= 52 && mark <= 57) {
+        break;
+    case 52 ... 57:
         return "B-";
-    } else if (mark >= 46 && mark <= 51) {
+        break;
+    case 46 ... 51:
         return "C+";
-    } else if (mark >= 40 && mark <= 45) {
+        break;
+    case 40 ... 45:
         return "C";
-    } else if (mark >= 36 && mark <= 39) {
+        break;
+    case 36 ... 39:
         return "C-";
-    } else if (mark >= 32 && mark <= 35) {
+        break;
+    case 32 ... 35:
         return "D+";
-    } else if (mark >= 28 && mark <= 31) {
+        break;
+    case 28 ... 31:
         return "D";
-    } else if (mark >= 25 && mark <= 27) {
+        break;
+    case 25 ... 27:
         return "D-";
-    } else if (mark >= 0 && mark <= 24) {
+        break;
+    case 0 ... 24:
         return "F";
-    } else {
+        break;
+    default:
         return "Invalid";
     }
 }
