@@ -14,6 +14,9 @@ test3.o: test3.cpp
 test4.o: test4.cpp
 	g++ -c test4.cpp
 	
+test5.o: test5.cpp
+	g++ -c test5.cpp
+	
 test1: main.o test1.o
 	g++ main.o test1.o -o output
 	./output
@@ -28,6 +31,10 @@ test3: main.o test3.o
 
 test4: main.o test4.o
 	g++ main.o test4.o -o output
+	./output
+	
+test5: main.o test5.o
+	g++ main.o test5.o -o output
 	./output
 	
 clean:
