@@ -1,4 +1,4 @@
-/*Lab2D*/
+/*Lab3A*/
 /*Write codes description here*/
 /*Name: Kua Khai Siang*/
 /*USM Email: kuakhaisiang2003@student.usm.my*/
@@ -14,8 +14,8 @@
 
 #include "main.hpp"                                     //Use this header file for all the functions' declaration
 #include <iostream>
-#include <string>
-using namespace std;
+#include <limits>
+#include <cmath>
 //Add any required header file(s)
 
 int main(int argc, char* const argv[]){                 //DO NOT EDIT OR REMOVE
@@ -23,67 +23,55 @@ int main(int argc, char* const argv[]){                 //DO NOT EDIT OR REMOVE
         return runCatchTests(argc, argv);               //DO NOT EDIT OR REMOVE
     #endif                                              //DO NOT EDIT OR REMOVE
     //add and complete your codes after this line
-
-    int mark;
     
-    cout << "Enter mark > ";
-    cin >> mark;
+    double num1, num2;
+    char op;
+    
+    for (;;) {
+        std::cout << "Calculate > ";
+        std::cin >> num1;
+        std::cin >> op;
+        std::cin >> num2;
 
-    string grade = get_grade(mark);
 
-    switch (mark) {
-    case 0 ... 39: 
-        cout << "Your grade: " << grade << " (FAIL)" << endl;
-        break;
-    case 40 ... 100: 
-        cout << "Your grade: " << grade << " (PASS)" << endl;
-        break;
-    default: 
-        cout << "Invalid mark. Re-run the program with mark between 0 and 100.";
+        double result = calc(num1, op, num2);
+        
+        if (!std::isnan(result)) {
+
+            std::cout.precision(4);
+            std::cout << std::fixed << "Answer: " << result << std::endl;
+        }
     }
 
     return 0;
 }
 
-string get_grade(int mark) {
-    switch (mark) {
-    case 80 ... 100: 
-        return "A";
-        break;
-    case 70 ... 79:
-        return "A-";
-        break;
-    case 64 ... 69:
-        return "B+";
-        break;
-    case 58 ... 63:
-        return "B";
-        break;
-    case 52 ... 57:
-        return "B-";
-        break;
-    case 46 ... 51:
-        return "C+";
-        break;
-    case 40 ... 45:
-        return "C";
-        break;
-    case 36 ... 39:
-        return "C-";
-        break;
-    case 32 ... 35:
-        return "D+";
-        break;
-    case 28 ... 31:
-        return "D";
-        break;
-    case 25 ... 27:
-        return "D-";
-        break;
-    case 0 ... 24:
-        return "F";
-        break;
-    default:
-        return "Invalid";
+
+double calc(double num1, char op, double num2) {
+    switch (op) {
+        case '+':
+            return num1 + num2;
+        case '-':
+            return num1 - num2;
+        case '*':
+            return num1 * num2;
+        case '/':
+            if (num2 == 0) {
+                std::cout << "Error: Division by zero!" << std::endl;
+                return std::numeric_limits<double>::infinity();
+            }
+            return num1 / num2;
+        case '%': {
+            int intNum1 = static_cast<int>(round(num1));
+            int intNum2 = static_cast<int>(round(num2));
+            if (intNum2 == 0) {
+                std::cout << "Error: Modulus by zero!" << std::endl;
+                return std::numeric_limits<double>::infinity();
+            }
+            return static_cast<double>(intNum1 % intNum2);
+        }
+        default:
+            std::cout << "Error: Invalid operation!" << std::endl;
+            return std::numeric_limits<double>::quiet_NaN();
     }
 }
