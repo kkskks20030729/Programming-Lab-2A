@@ -1,4 +1,2 @@
-#include <string>       //necessary for function with std::string as return variable
-using namespace std;    //                          "
 //functions declaration
-string get_grade(int mark);
+double calc(double num1, char op, double num2);
