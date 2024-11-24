@@ -40,11 +40,31 @@ jobs:
         command: make test3
         timeout: 5
         max-score: 3
+    - name: Test 4
+      id: test-4
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Test 4
+        setup-command: ''
+        command: make test4
+        timeout: 5
+        max-score: 3
+    - name: Test 5
+      id: test-5
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Test 5
+        setup-command: ''
+        command: make test5
+        timeout: 5
+        max-score: 3
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
         TEST-1_RESULTS: "${{steps.test-1.outputs.result}}"
         TEST-2_RESULTS: "${{steps.test-2.outputs.result}}"
         TEST-3_RESULTS: "${{steps.test-3.outputs.result}}"
+        TEST-4_RESULTS: "${{steps.test-4.outputs.result}}"
+        TEST-5_RESULTS: "${{steps.test-5.outputs.result}}"
       with:
-        runners: test-1,test-2,test-3
+        runners: test-1,test-2,test-3,test-4,test-5
