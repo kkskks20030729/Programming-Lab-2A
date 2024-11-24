@@ -58,7 +58,7 @@ double calc(double num1, char op, double num2) {
         case '/':
             if (num2 == 0) {
                 std::cout << "Error: Division by zero!" << std::endl;
-                return std::numeric_limits<double>::infinity();
+                return std::numeric_limits<double>::quiet_NaN();
             }
             return num1 / num2;
         case '%': {
@@ -66,7 +66,7 @@ double calc(double num1, char op, double num2) {
             int intNum2 = static_cast<int>(round(num2));
             if (intNum2 == 0) {
                 std::cout << "Error: Modulus by zero!" << std::endl;
-                return std::numeric_limits<double>::infinity();
+                return std::numeric_limits<double>::quiet_NaN();
             }
             return static_cast<double>(intNum1 % intNum2);
         }
