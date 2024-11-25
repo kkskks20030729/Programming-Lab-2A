@@ -1,4 +1,4 @@
-/*Lab3A*/
+/*Lab3B*/
 /*Write codes description here*/
 /*Name: Kua Khai Siang*/
 /*USM Email: kuakhaisiang2003@student.usm.my*/
@@ -13,8 +13,8 @@
 #endif                                                  //DO NOT EDIT OR REMOVE
 
 #include "main.hpp"                                     //Use this header file for all the functions' declaration
-#include <iomanip>
 #include <iostream>
+#include <iomanip>
 #include <cmath>
 using namespace std;
 //Add any required header file(s)
@@ -24,11 +24,11 @@ int main(int argc, char* const argv[]){                 //DO NOT EDIT OR REMOVE
         return runCatchTests(argc, argv);               //DO NOT EDIT OR REMOVE
     #endif                                              //DO NOT EDIT OR REMOVE
     //add and complete your codes after this line
-    
     double num_1, num_2, result;
     char operation;
-
+    
     for (;;) {
+    
     cout << "Enter Num_1 <SPACE> Operation <SPACE> Num_2" << endl;
     cin >> num_1 >> operation >> num_2;
 
@@ -42,35 +42,37 @@ int main(int argc, char* const argv[]){                 //DO NOT EDIT OR REMOVE
     }
 }
 
+
 double calc (double num_1, char operation, double num_2)
- {
+{
     int intnum_1 = 0, intnum_2 = 0;
-    
-    switch (operation) {
-        
-        case '+':
+
+    if (operation == '+')
+    {
         return num_1 + num_2;
-        break;
-
-        case '-':
+    }
+    
+    if (operation == '-')
+    {
         return num_1 - num_2;
-        break;
-
-        case '*':
+    }
+    
+    if (operation == '*')
+    {
         return num_1 * num_2;
-        break;
-
-        case '/':
+    }
+    
+    if (operation == '/')
+    {
         return num_1 / num_2;
-        break;
-
-        case '%': 
+    }
+    
+    if (operation == '%')
+    {
         intnum_1 = static_cast<int>(round(num_1));
         intnum_2 = static_cast<int>(round(num_2));
         return intnum_1 % intnum_2;
-        break;
     }
-    
+        
     return 0;
-
- }
+}
