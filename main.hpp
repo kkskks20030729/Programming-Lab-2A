@@ -1,2 +1,2 @@
 //functions declaration
-double calc(double num1, char op, double num2);
+double calc (double num_1, char operation, double num_2);
