@@ -13,9 +13,10 @@
 #endif                                                  //DO NOT EDIT OR REMOVE
 
 #include "main.hpp"                                     //Use this header file for all the functions' declaration
+#include <iomanip>
 #include <iostream>
-#include <limits>
 #include <cmath>
+using namespace std;
 //Add any required header file(s)
 
 int main(int argc, char* const argv[]){                 //DO NOT EDIT OR REMOVE
@@ -24,54 +25,52 @@ int main(int argc, char* const argv[]){                 //DO NOT EDIT OR REMOVE
     #endif                                              //DO NOT EDIT OR REMOVE
     //add and complete your codes after this line
     
-    double num1, num2;
-    char op;
-    
+    double num_1, num_2, result;
+    char operation;
+
     for (;;) {
-        std::cout << "Calculate > ";
-        std::cin >> num1;
-        std::cin >> op;
-        std::cin >> num2;
+    cout << "Enter Num_1 <SPACE> Operation <SPACE> Num_2" << endl;
+    cin >> num_1 >> operation >> num_2;
 
+    cout << "Calculate > " << num_1 << " " << operation << " " << num_2 << endl;
+    
+    result = calc(num_1, operation, num_2);
+    
+    cout << fixed << setprecision(4);
+    cout << "Answer: " << result << endl;
 
-        double result = calc(num1, op, num2);
+    }
+}
+
+double calc (double num_1, char operation, double num_2)
+ {
+    int intnum_1 = 0, intnum_2 = 0;
+    
+    switch (operation) {
         
-        if (!std::isnan(result)) {
-
-            std::cout.precision(4);
-            std::cout << std::fixed << "Answer: " << result << std::endl;
-        }
-    }
-
-    return 0;
-}
-
-
-double calc(double num1, char op, double num2) {
-    switch (op) {
         case '+':
-            return num1 + num2;
+        return num_1 + num_2;
+        break;
+
         case '-':
-            return num1 - num2;
+        return num_1 - num_2;
+        break;
+
         case '*':
-            return num1 * num2;
+        return num_1 * num_2;
+        break;
+
         case '/':
-            if (num2 == 0) {
-                std::cout << "Error: Division by zero!" << std::endl;
-                return std::numeric_limits<double>::quiet_NaN();
-            }
-            return num1 / num2;
-        case '%': {
-            int intNum1 = static_cast<int>(round(num1));
-            int intNum2 = static_cast<int>(round(num2));
-            if (intNum2 == 0) {
-                std::cout << "Error: Modulus by zero!" << std::endl;
-                return std::numeric_limits<double>::quiet_NaN();
-            }
-            return static_cast<double>(intNum1 % intNum2);
-        }
-        default:
-            std::cout << "Error: Invalid operation!" << std::endl;
-            return std::numeric_limits<double>::quiet_NaN();
+        return num_1 / num_2;
+        break;
+
+        case '%': 
+        intnum_1 = static_cast<int>(round(num_1));
+        intnum_2 = static_cast<int>(round(num_2));
+        return intnum_1 % intnum_2;
+        break;
     }
-}
+    
+    return 0;
+
+ }
